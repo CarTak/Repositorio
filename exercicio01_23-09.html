@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Exercicio01_23-09></Exercicio01_23-09></title>
+</head>
+<body>
+    <script>
+        /* 
+        Faça um programa em Javascript que leia um vetor de seis elementos numéricos inteiros, calcule e mostre:
+        a) A quantidade de números pares
+        b) Quais os números pares
+        c) A quantidade de números ímpares
+        d) Quais os números ímpares
+        */
+        let vetor = []
+        let par = []
+        let impar = []
+        let pa = 0, im = 0
+        for (i = 0; i < 6 ; i++) {
+            vetor[i] = parseInt(prompt('Insira o ' + (i+1) + ' elemento'))
+            if (vetor[i] % 2 == 0 ){
+                par[pa] = vetor[i]
+                pa++
+            }else {
+                impar[im] = vetor[i]
+                im++
+            }
+        }
+        document.write(`<p>O total de números pares é de ${par.length} números</p>`)
+        document.write('<p>E os números pares são:</p>')
+        for (i = 0; i < par.length ; i++){
+            document.write(`<p>${par[i]}</p>`)
+        }
+        document.write(`<p>O total de números impares é de ${par.length} números</p>`)
+        document.write('<p>E os números impares são:</p>')
+        for (i = 0; i < impar.length ; i++){
+            document.write(`<p>${impar[i]}</p>`)
+        }  
+    </script> 
+</body>
+</html>
