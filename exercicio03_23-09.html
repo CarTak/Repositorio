@@ -13,20 +13,21 @@
         valores em um array e depois imprima-os no HTML. 
         Evite que o array possua valores duplicados.
         */
-       let tabela = []
-       for (i = 0; i < 20; i++) {
-           /*let flag = false
-         while (flag == true){ 
-            const valor = parseInt(promp(`Insira o ${i + 1} numero`)
-            tabela[i]=valor
-            if (valor=1) {flag=false}
-            /*for (u = 0; u < i, u++) {            
-                if (tabela[u] = valor || (u = i)){
-                    flag = 0
-                    tabela[i]=valor
+        let tabela = []
+        for (i = 0; i < 5; i++) {
+            let flag = true
+            const valor = parseInt(prompt(`Insira o ${i + 1} numero`))   
+            for (u = 0; u < i; u++) {
+                if (tabela [u] == valor) {
+                    alert('Este número já foi inserido')
+                    i--
+                    flag = false
                 }
             } 
-          } */
+            if(flag == true){
+                tabela[i] = valor
+                document.write(`<p>o ${i+1} numero é ${valor}</p>`)
+            }         
         }
     </script>    
 </body>
