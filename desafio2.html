@@ -21,7 +21,8 @@
 
        for (let i = 0; i < qtdProdutos; i++){
          let preco = parseFloat(prompt(`Informe o valor do ${i + 1} produto`))
-         precosProdutos[i] = preco         
+        /* precosProdutos[i] = preco   embaixo é equivalente*/  
+        precosProdutos.push(preco)   //  pega um valor a adiciona no proximo valor disponivel 
        }
 
        let soma = 0
@@ -37,6 +38,8 @@
         }
        alert(`O preço final a pagar é de ${soma}`)
 
+        /*
+        Feito por mim
         let menorPreco = precosProdutos[0], maiorPreco = precosProdutos[0]
         for (i = 0; i < qtdProdutos; i++){
             if (precosProdutos[i] > maiorPreco){
@@ -46,7 +49,7 @@
                 menorPreco = precosProdutos[i]
             }
         }
-        alert(`O preço mais alto da compra foi ${maiorPreco} e o produto com menor preço foi ${menorPreco}`)
+        alert(`O preço mais alto da compra foi ${maiorPreco} e o produto com menor preço foi ${menorPreco}`)*/
     </script>
 </body>
 </html>
