@@ -11,3 +11,67 @@ desconto de 10% sobre o valor que ultrapassar os R$ 750,00. Caso ambos os descon
 aplicam o da área é calculado antes. Fazer um algoritmo que leia: o tipo de pulverização
 (1 a 4) e área a ser pulverizada; e imprima o valor a ser pago.
 */
+const mensagem = `
+Qual o tipo de pulverização você deseja fazer?
+    1 - Ervas daninhas
+    2 - Gafanhotos
+    3 - Broca
+    4 - Todas aplicações`
+const tipo = parseInt(prompt(mensagem))
+const area = parseInt(prompt('Informe o tamanho da área a ser pulverizada (em acres):'))
+let preco = 0
+let opcao = ''
+switch(tipo){
+    case 1:{
+        opcao='Ervas daninhas'
+        if (area > 1000){
+            preco = (area * 50)*0.95
+            if (preco > 750) {
+                preco = preco * 0.9
+            }
+        }else {
+            preco = area * 50
+        }
+    }
+    break;
+    case 2:{
+        opcao='Gafanhotos'
+        if (area > 1000){
+            preco = (area * 100)*0.95
+            if (preco > 750) {
+                preco = preco * 0.9
+            }
+        } else {
+            preco = area * 100 
+        }
+    }
+    break;
+    case 3:{
+        opcao='Broca'
+        if (area > 1000){
+            preco = (area * 150)*0.95
+            if (preco > 750) {
+                preco = preco * 0.9
+            }
+        }else {
+            preco = area * 150
+        }
+    }
+    break;
+    case 4:{
+        opcao='Todas aplicações'
+        if (area > 1000){
+            preco = (area * 250)*0.95
+            if (preco > 750) {
+                preco = preco * 0.9
+            }
+        } else {
+            preco = area * 250
+        }
+    }
+    break;
+    default:{
+        alert('Opção inválida')
+    }
+}
+document.write(`O valor da pulverização da área de ${area} hectares para ${opcao} é de R$ ${preco},00`)
