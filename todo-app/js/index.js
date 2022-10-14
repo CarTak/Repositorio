@@ -5,6 +5,7 @@
 // recupera elementos HTML a partir do nome da TAG
 //const todoForm = document.getElementsByTagName('form')[0]
 const todoForm = document.getElementById('todo-form')
+const optionForm = document.getElementById('todo-option')
 const todos = []
 
 /*
@@ -33,7 +34,16 @@ todoForm.addEventListener('submit', function (evento) {
     * dos elementos de formulários do HTML, para acessarmos o valor que está dentro
     * deles
     */
-    todos.push(todoInput.value)
+    let cor;
+    if (option1.checked == true){  
+        cor = 'verde' 
+    }else 
+        if (option2.checked == true){
+            cor = 'amarelo'
+        }else {
+                cor = 'vermelho'
+        }   
+    todos.push(todoInput.value + cor)
     todoInput.value = ''
     renderizarTodos()
 })
