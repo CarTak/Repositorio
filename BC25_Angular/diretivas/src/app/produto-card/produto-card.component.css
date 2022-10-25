@@ -1,0 +1,26 @@
+.card{
+    width: 250px;
+}
+
+.card-subtitle {
+    font-size: 13px;
+}
+
+.badge {
+    font-size: 10px;
+}
+
+.cardOculto {
+    width: 150px;
+    border: solid;
+    border-width: 2px;
+    border-color: rgb(214, 207, 207);
+    border-radius: 5px; 
+}
+
+.btnEsconder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+}
