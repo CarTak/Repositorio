@@ -1,0 +1,68 @@
+.card{
+    border-radius: 8px;
+    background-color: #252838d8;
+    width: 400px;
+    height: 240px; 
+    display: flex; 
+    margin: 20px; 
+    box-sizing: border-box;
+    border: 1px solid #25283895;
+}
+
+strong{
+    color: #6e5e7d;
+}
+
+.card:hover{
+    border: 1px solid #5d486f;
+}
+
+.img_capa{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 0 0 8px;
+    box-sizing: border-box;
+    object-fit: cover;
+}
+
+.img-nota{
+    max-width: 70px;
+    height: 15px;
+    margin-left: 10px;
+}
+
+.card-conteudo_nota{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.card-capa{
+    width: 40%;
+    height: 100%;
+    margin-right: 5px;  
+}
+
+.card-conteudo{
+    padding: 15px;
+    color: #eedac2;
+    width: 52%;
+}
+
+.card-lixeira{
+    display: flex;
+    height: 100%;
+    width: 8%;
+    align-items: flex-end;
+}
+
+.lixinho{
+    width: 20px;
+    height: 20px;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.lixinho:hover{
+    transform: scale(1.1);
+}

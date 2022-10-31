@@ -1,0 +1,114 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.container-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    height: auto;
+    
+}
+
+
+.titulo{
+    color: #5d486f;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+}
+
+.form-cadastro{
+    background-color: #202032;
+    border-radius: 15px;
+    width: 80%;
+    height: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    background-image: url(../assets/img-fundo.png);
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position-y: 20%;
+    background-position-x: -5%;
+}
+
+.form-cadastro_titulo{
+    color: #e3c5a3;
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.form-cadastro_formulario{
+    display: flex; 
+    align-items: center;  
+    justify-content: flex-start;
+    width: 100%;
+   
+}
+
+.btn-adicionar{
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+input{
+    background-color: #202032;
+    border: 1px solid #5d486f;
+    border-radius: 20px;
+    padding: 5px;
+    width: 28%;
+    height: 20px;
+    margin-right: 10px;
+    color: #eedac2;
+}
+
+input#paginas{
+    width: 12%;
+}
+
+input:focus{
+    outline: 1px solid #e3c5a3;    
+}
+
+.caixa-avaliacao{
+    display: flex;
+    width: auto;
+    height: 30px;
+    align-items: center;
+    color: #e3c5a3;
+    margin: 0 10px;
+}
+
+.avaliacao{
+    margin-right: 5px;
+    
+}
+
+.icone-estrela{
+    cursor: pointer;
+}
+
+.btn-adicionar{
+    background-color: #202032;
+    border: none;
+    transition: 0.5s;
+}
+
+.btn-adicionar:hover{
+    transform: scale(1.2);
+}
+
+/* CARDS */
+
+.cards{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    margin: 20px 80px;
+}

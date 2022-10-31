@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'forms';
+  /**
+   * aqui estamos criando o objeto dadosUsuario
+   */
+  dadosUsuario = {
+    nome: '',
+    sobrenome: '',
+    email: '',
+    senha: ''
+  }
+
+  enviarForm() {
+    alert('Formulátio Enviado!')
+  }
+
 }
