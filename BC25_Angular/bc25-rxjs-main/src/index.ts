@@ -1,6 +1,7 @@
 import path from 'path'
-import { Observable } from 'rxjs'
+import { filter, first, last, map, Observable, take } from 'rxjs'
 import fs from 'fs'
+import { TestScheduler } from 'rxjs/testing'
 
 const filePaths: string[] = [
   path.join(__dirname, 'files', 'app_1.txt'),
@@ -17,7 +18,7 @@ const filePaths: string[] = [
   path.join(__dirname, 'files', 'estrutura_4.html')
 ]
 
-const isCSS = /^((.|#){0,1}(\w+-{0,1})+\s*{(\s*(\w+-{0,1})+:\s*(\w+\s*)+;\s*)+\s*}\s*)/i
+const isCSS =  /^((.|#|:){0,1}(\w+-{0,1})+\s*{(\s*(\w+-{0,1})+:\s*(\w+\s*)+;\s*)+\s*}\s*)/i
 const isHTML = /^<!DOCTYPE html>/i
 
 function lerArquivos(arquivos: string[]) {
@@ -44,8 +45,14 @@ function lerArquivos(arquivos: string[]) {
        * fs é um método que deve ser importado
        */
 
-      const conteudo = fs.readFileSync(arquivo, {encoding: 'utf-8'})
-      subscriber.next(conteudo) // resposavel por mandar a mensagem de sucesso
+      try {
+        const conteudo = fs.readFileSync(arquivo, {encoding: 'utf-8'})
+        subscriber.next(conteudo)
+      } catch (error){
+        subscriber.error(`Não foi possível ler o arquivo que está no caminho ${arquivo}`)
+      }
+      
+      // resposavel por mandar a mensagem de sucesso
       // subscriber.error() // responsavel por mandar a mensagem de erro
       // subscriber.complete() // responsavel por mandar a mensagem de completo
 
@@ -65,6 +72,8 @@ function lerArquivos(arquivos: string[]) {
        * 
        */      
     })  
+
+    subscriber.complete()
   })
   return leitor
 }
@@ -82,16 +91,90 @@ let obs = lerArquivos(filePaths)
  * 3) -> Completo
  */
 
-obs.subscribe(
+/***
+ * Operadores -> Funções que servem para manipular os dados
+ *                que os observables enviam
+ */
+/***
+ * Utilizando algum operador do RXJS, vamos extrair a primeira palavra
+ * de cada arquivo
+ */
+/***
+ * A função pipe serve para você passar os operadores do RXJS que modificarão
+ * os dados que o Observable retorna para vocÊ!
+ */
+/***
+ * o operador map serve para pegar odado que é enviado pelo Observable
+ * e manipulá-lo de alguma forma para que você acesse esse dado modificado
+ */
+
+obs
+.pipe(
+   /** texto.split(' ')[0] o split transforma o arquivo num array onde cada elemento foi separadp
+ * pelo espaço (' ') e onde o primeiro elemento é [0]
+ */
+  /* map((texto) => {
+    return texto.split(' ')[0]
+  }),
+  map((palavra) => {
+    return palavra.length
+  }) */
+
+  /***
+   * filter() serve para filtrar determinadas informações enviadas pelo Observable
+   */
+  /* filter((txt) => { */
+    /**
+     * a função test() vai testar o conteudo do arquivo e compara com a condição
+     * isCSS que está definido no começo deste arquivo.
+     */
+    /* return isCSS.test(txt) */
+    /* return isHTML.test(txt) */
+    /* return isHTML.test(txt) == false && isCSS.test(txt) == false */
+    /** as expressões acima e a debaixo são equivalentes */
+    /* return !isHTML.test(txt) && !isCSS.test(txt)
+        }) */
+    /* 
+    o operador take() serve para pegar uma quantiadade determinado que
+    o Observable envia   */    
+    // take(4)
+    // o operador first() retorna o primeiro arquivo encontrado
+    //first()
+    //first() abaixo irá pegar o primeiro arquivo HTML que ele encontrar
+    /* first((txt) => {
+      return isHTML.test(txt)
+    }) */
+    // last() retorna o último arquivo pesquisado
+    //last()
+    last((txt) => {
+      return isCSS.test(txt)
+    })
+  )
+.subscribe(
   (conteudoLido) => {
     console.log('---------- ARQUIVO LIDO COM SUCESSO ----------')
     console.log(conteudoLido)
     console.log('----------------------------------------------\n\n')
+  },
+  (erro) => {
+    console.log('OCORREU UM ERRO NA EXECUÇÃO DO OBSERVABLE')
+    console.log(erro)
+  },
+  () => {
+    console.log('TODOS OS ARQUIVOS FORAM LIDOS COM SUCESSO')
   }
 )
 
-obs.subscribe(
+
+/* obs.subscribe(
   (conteudoLido) => {
     console.log(`Este arquivo possui ${conteudoLido.length} caracteres`)
+  },
+  (erro) => {
+    console.log('OCORREU UM ERRO NA EXECUÇÃO DO OBSERVABLE')
+    console.log(erro)
+  },
+  () => {
+    console.log('TODOS OS ARQUIVOS FORAM LIDOS COM SUCESSO')
   }
-)
+) */
