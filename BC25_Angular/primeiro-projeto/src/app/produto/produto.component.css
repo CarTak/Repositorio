@@ -6,12 +6,12 @@
 } */
 
 section {
+    margin: 150px 0px 0px 200px;
     width: 250px;
     padding-bottom: 0;
     border: 1px solid;
     display: flex;
     flex-direction: column;
-    
 }
 
 .img-container {

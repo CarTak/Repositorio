@@ -1,0 +1,47 @@
+<header>
+  <nav>
+    <ul>
+      <a [routerLink]="'filmes/'">
+        <img src="../assets/pipoca.png" width="50px">
+      </a>
+      <li>
+        <form (ngSubmit)="pesquisar(nomeFilme)">
+          <input type="text" placeholder="Buscar por Filme" [(ngModel)]="nomeFilme" name="nomeFilme">
+          <button type="submit" class="botao-pesquisa">
+            <mat-icon>search</mat-icon>
+          </button>
+        </form>
+      </li>
+      <li>
+        <button class="favoritos">
+          <img src="../assets/coracaoVazio.png" width="20px">
+          <p>Lista de Favoritos</p>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+<main class="container" *ngIf="pesquisa">
+  <section>
+    <h2 class="titulo-pesquisa">Pesquisar "{{nomeFilme}}"</h2>
+  </section>
+  <section>
+    <div class="card-filme" *ngFor="let filme of listaPesquisa.results">
+      <img [src]="'https://image.tmdb.org/t/p/original/' + filme.poster_path" class="poster">
+      <div class="conteudo-card">
+        <div class="avaliacao">
+          <img src="../../../assets/estrela.png" width="15px" height="15px" class="icone-estrela">
+          <p>{{filme.vote_average}}</p>
+        </div>
+        <div class="titulo-e-favoritar">
+          <p class="titulo-filme">{{ filme.title }}</p>
+        </div>
+      </div>
+  </div>
+  </section>
+</main>
+
+<main class="container" *ngIf="pesquisa == false">
+  <router-outlet></router-outlet>
+</main>
+

@@ -1,0 +1,32 @@
+<main class="container">
+  <section class="search">
+    <img src="/assets/faviconico.ico" alt="CEP" *ngIf="gUser == undefined">
+    <form action="#" id="search-form" [formGroup]="cepForm" (ngSubmit)="procurar()" *ngIf="gUser == undefined">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput placeholder="Ex: frogs123" formControlName="cep">
+      </mat-form-field>
+      <button mat-flat-button color="accent" matTooltip="Procurar CEP" [disabled]="cepForm.invalid">
+        <mat-icon>search</mat-icon>
+      </button><br>
+    </form>
+    <div id="div1">
+      <div id="div2">
+        <!-- <img id="imagem" *ngIf="gUser != undefined" [src]="gUser.avatar_url"> -->
+        <p *ngIf="gUser != undefined">CEP:  {{ gUser.cep }}</p>
+        <p *ngIf="gUser != undefined">Rua:  {{ gUser.logradouro }} </p>
+        <p *ngIf="gUser != undefined">Complemento:  {{ gUser.complemento }}</p>
+        <p *ngIf="gUser != undefined">Bairro:  {{ gUser.bairro }}</p>
+        <p *ngIf="gUser != undefined">Localidade: {{ gUser.localidade }}</p>
+        <p *ngIf="gUser != undefined">UF: {{ gUser.uf }}</p>
+        <p *ngIf="gUser != undefined">ibge {{ gUser.ibge }}</p>
+        <p *ngIf="gUser != undefined">gia {{ gUser.gia }}</p>
+        <p *ngIf="gUser != undefined">ddd {{ gUser.ddd }}</p>
+        <p *ngIf="gUser != undefined">siafi {{ gUser.siafi }}</p>
+      </div>
+      <div id="div3">
+         
+      </div>
+  </div>
+  </section>
+</main>

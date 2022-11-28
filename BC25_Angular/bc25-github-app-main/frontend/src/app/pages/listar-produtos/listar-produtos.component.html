@@ -1,0 +1,30 @@
+<main class="container">
+    <mat-card *ngFor="let prod of produtos">
+      <img [src]="prod.foto || altImg" [alt]="prod.nome" mat-card-image>
+      <mat-card-subtitle>{{ prod.nome }}</mat-card-subtitle>
+      <mat-card-content>
+        <p class="preco">
+          <strong>{{ prod.preco | currency:'BRL' }}</strong>
+        </p>
+        <p class="desc">
+          {{ prod.descricao }}
+        </p>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <!-- Com o routerLink que é utilizado pelo Angular (no lugar do href que pode ser usado no lugar do routerLink), 
+             só há uma requisição de serviço que ocorre somente primeira vez(quando o site é carregado), o carregamento 
+             é feito todo em Javascript  -->
+        <!--matTooltip(do Angular) serve para mostrar mensagens sensíveis ao mouse--> 
+        <a [routerLink]="'/produtos/' + prod.id" mat-stroked-button color="primary" matTooltip="Editar Produto">
+          <mat-icon>edit</mat-icon>
+        </a>
+        <button mat-stroked-button color="warn"matTooltip="Deletar Produto">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <button routerLink="/produtos/novo"  mat-mini-fab color="accent" id="go-form" matTooltip="Adicionar Produto" matTooltipPosition="left">
+      <mat-icon>add</mat-icon>
+    </button>
+  </main>

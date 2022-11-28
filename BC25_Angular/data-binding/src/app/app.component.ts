@@ -27,7 +27,7 @@ export class AppComponent {
   n1: number = 0
   n2: number = 0
 
-  tipoInput: string = 'text'
+  tipoInput: string  = "password"
 
   somar(x: number, y: number) {
     return x + y

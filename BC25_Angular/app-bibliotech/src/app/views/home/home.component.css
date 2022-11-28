@@ -1,0 +1,16 @@
+.banner-text {
+    position: absolute;
+    width: 834px;
+    height: 213px;
+    left: 139px;
+    top: 613px;
+
+    color: black;
+}
+
+.banner {
+    width: 100%;
+    height: 610px;
+    left: 0px;
+    top: 45px;
+}

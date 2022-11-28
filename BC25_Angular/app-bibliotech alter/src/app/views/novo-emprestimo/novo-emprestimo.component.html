@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Novo colaborador</h1>
+    <form [formGroup]="formEmprestimo">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>idLivro</mat-label>
+            <input type="text" matInput placeholder="Livro" formControlName="idlivro">
+        </mat-form-field>
+
+        <div class="double-width">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Leitor</mat-label>
+                <input type="text" matInput placeholder="Leitor" formControlName="leitor">
+            </mat-form-field>
+        </div>
+
+        <div class="double-width">    
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input type="email" matInput placeholder="E-mail" formControlName="email">
+            </mat-form-field>
+        </div>
+
+        <div class="double-width">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Telefone</mat-label>
+                <input type="text" matInput placeholder="Telefone" formControlName="telefone">
+            </mat-form-field>
+        </div>        
+
+        <div class="double-width">
+            <button class="full-width btn-submit" mat-raised-button (click)="createEmprestimo()">Cadastrar</button>
+            <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a>
+        </div>
+    </form>
+</div>
