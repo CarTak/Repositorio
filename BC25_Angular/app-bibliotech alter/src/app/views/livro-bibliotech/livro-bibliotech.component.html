@@ -44,45 +44,40 @@
     </section>
 </div>
 <div class="container-editar">
-    <form #formEdit="ngForm">
+    <form [formGroup]="formLivro">
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Titulo</mat-label>
-                <input type="text" matInput placeholder="Titulo" name="titulo">
+                <input type="text" matInput placeholder="Titulo" name="titulo" formControlName="titulo">
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Autor</mat-label>
-                <input type="autor" matInput placeholder="Autor" name="autor">
+                <input type="autor" matInput placeholder="Autor" name="autor" formControlName="autor" >
             </mat-form-field>
         </div>
 
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Categoria</mat-label>
-                <input type="text" matInput placeholder="Categoria" name="categoria">
+                <input type="text" matInput placeholder="Categoria" name="categoria" formControlName="categoria">
             </mat-form-field>
 
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>ISBN</mat-label>
-                <input type="email" matInput placeholder="ISBN" name="isbn" >
+                <input type="email" matInput placeholder="ISBN" name="isbn" formControlName="isbn" >
             </mat-form-field>
         </div>
 
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Capa</mat-label>
-                <input type="text" matInput placeholder="Capa" name="capa" >
+                <input type="text" matInput placeholder="Capa" name="capa" formControlName="capa">
             </mat-form-field>
 
-           <button class="full-width btn-submit" mat-raised-button >Adicionar</button>     
-            <!-- <button class="full-width btn-submit" mat-raised-button (click)="createLivro(livro)">Adicionar</button>
-            <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a> -->
+           <!-- <button class="full-width btn-submit" mat-raised-button >Adicionar</button>  -->    
+           <button class="full-width btn-submit" mat-raised-button (click)="createLivro()">Cadastrar</button>
+            <!-- <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a> -->
         </div>
     </form>
 </div>
-<!--  [(ngModel)]="livro.titulo" required -->
-<!--  [(ngModel)]="livro.autor" required -->
- <!-- [(ngModel)]="livro.categoria" required -->
- <!-- [(ngModel)]="cadLivro.isbn" required -->
- <!-- [(ngModel)]="livro.capa" required -->

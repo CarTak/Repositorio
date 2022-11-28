@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastrarUsuarioComponent } from './views/cadastrar-usuario/cadastrar-usuario.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-
+import{NovoEmprestimoComponent} from './views/novo-emprestimo/novo-emprestimo.component';
 const routes: Routes = [
   {
     path: '',
@@ -35,12 +35,12 @@ const routes: Routes = [
     canActivate: [ AuthGuard ],
     title: "Painel de Controle | Bibliotech"
   },
-/*   {
-    path: 'dashboard/new',
-    component: NewBibliotechComponent,
+   {
+    path: 'novo-emprestimo',
+    component: NovoEmprestimoComponent,
     canActivate: [ AuthGuard ],
     title: "Novo colaborador | Bibliotech"
-  }, */
+  },
   {
     path: 'livro-bibliotech',
     component: LivroBibliotechComponent,

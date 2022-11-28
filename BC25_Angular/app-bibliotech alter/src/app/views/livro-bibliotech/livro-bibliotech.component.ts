@@ -30,13 +30,11 @@ export class LivroBibliotechComponent implements OnInit {
     private upLoadService: UploadService
   ) {
     this.formLivro = fb.group({
-      idLivro: ["", [Validators.required]],
       titulo: ["", [Validators.required]],
       categoria: ["", [Validators.required]],
-      autor: ["", [Validators.required, Validators.email]],
+      autor: ["", [Validators.required]],
       isbn: ["", [Validators.required]],
-      capa: ["", [Validators.required]],
-      status: ["", [Validators.required]]
+      capa: ["", [Validators.required]]
     });
    }
 

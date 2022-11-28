@@ -5,5 +5,4 @@ export interface Livro {
     autor: string;
     isbn: string;
     capa: string;
-    status: boolean;
 }

@@ -23,6 +23,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { AvatarPipe } from './pipes/avatar.pipe';
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component'; //armazenar arquivos
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-empr
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

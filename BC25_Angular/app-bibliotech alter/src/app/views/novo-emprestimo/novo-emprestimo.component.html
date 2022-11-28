@@ -1,11 +1,7 @@
 <app-header></app-header>
 <div class="container">
-    <h1>Novo colaborador</h1>
+    <h1>Novo Emprestimo</h1>
     <form [formGroup]="formEmprestimo">
-        <mat-form-field class="full-width" appearance="outline">
-            <mat-label>idLivro</mat-label>
-            <input type="text" matInput placeholder="Livro" formControlName="idlivro">
-        </mat-form-field>
 
         <div class="double-width">
             <mat-form-field class="full-width" appearance="outline">
@@ -26,7 +22,28 @@
                 <mat-label>Telefone</mat-label>
                 <input type="text" matInput placeholder="Telefone" formControlName="telefone">
             </mat-form-field>
-        </div>        
+        </div>
+        
+<!--         <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Status</mat-label>
+            <input type="text" matInput placeholder="Status" formControlName="status">
+        </mat-form-field> -->
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Select your car</mat-label>
+            <select matNativeControl formControlName="status">
+                <option value="" disabled selected></option>
+                <option value="disponivel">Disponivel</option>
+                <option value="emprestado">Emprestado</option>
+            </select>
+        </mat-form-field>
+    
+        
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Titulo</mat-label>
+            <input type="text" matInput placeholder="Titulo" formControlName="titulo">
+        </mat-form-field>
 
         <div class="double-width">
             <button class="full-width btn-submit" mat-raised-button (click)="createEmprestimo()">Cadastrar</button>

@@ -25,13 +25,12 @@ export class NovoEmprestimoComponent implements OnInit {
     private upLoadService: UploadService
   ) {
     this.formEmprestimo = fb.group({
-      idEmprestimo: ["", [Validators.required]],
-      idLivro: ["", [Validators.required]],
+      titulo: ["", [Validators.required]],
       leitor: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       telefone: ["", [Validators.required]],
-      dataEmprestimo: ["", [Validators.required]],
-      dataDevolucao: ["", [Validators.required]]
+      status: ["", [Validators.required]]
+      /* dataEmprestimo: ["", [Validators.required]] */
     });
   }
 
