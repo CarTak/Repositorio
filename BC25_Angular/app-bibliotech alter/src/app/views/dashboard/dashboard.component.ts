@@ -4,6 +4,7 @@ import { Emprestimo } from '../../models/emprestimo';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailsComponent } from 'src/app/components/details/details.component';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,6 +17,7 @@ export class DashboardComponent implements OnInit {
   dataSource: Emprestimo[] = [];
 
   constructor(
+    private livroService: LivroService,
     private emprestimoService: EmprestimoService,
     private notification: NotificationService,
     private dialog: MatDialog
@@ -28,6 +30,9 @@ export class DashboardComponent implements OnInit {
   private initializeTable(): void {
     this.emprestimoService.findAll().subscribe(emprestimo => {
       this.dataSource = emprestimo;
+    });
+    this.livroService.findAll().subscribe(livro => {
+      this.dataSource = livro;
     });
   }
 

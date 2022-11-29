@@ -41,11 +41,11 @@
                     </a>
                 </td>
             </ng-container>
-            
+
             <ng-container matColumnDef="Capa">
                 <th mat-header-cell *matHeaderCellDef> Capa </th>
-                <td mat-cell *matCellDef="let emprestimo">
-                    <img class="avatar" src="{{ emprestimo.capaUrl | avatar }}" alt="Avatar" (click)="openDetails(emprestimo)">
+                <td mat-cell *matCellDef="emprestimo">
+                    <img class="avatar" src="{{emprestimo.capa | avatar }}" alt="Avatar" (click)="openDetails(emprestimo)">
                 </td>
             </ng-container>
 

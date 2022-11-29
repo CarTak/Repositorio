@@ -36,7 +36,7 @@ export class LivroBibliotechComponent implements OnInit {
       categoria: ["", [Validators.required]],
       autor: ["", [Validators.required]],
       isbn: ["", [Validators.required]],
-      capa: ["", [Validators.required]]      
+      capa: [""]      
     });
    }
 
@@ -82,8 +82,8 @@ export class LivroBibliotechComponent implements OnInit {
     this.isLoadUpLoad = true;
     const file: File= event.target.files[0];
     this.upLoadService.uploadCapa(file).subscribe(response => {
-      this.isLoadUpLoad = false;
       response.ref.getDownloadURL().then((capa: string) => {
+        this.isLoadUpLoad = false;
         this.capa = capa;
       })
     });
