@@ -45,3 +45,15 @@ table {
 .btn-submit:hover {
     background-color: #587dc8;
 }
+
+.upload-capa {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-capa::-webkit-file-upload-button {
+    display: none;
+}

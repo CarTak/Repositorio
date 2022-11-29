@@ -70,14 +70,9 @@
         </div>
 
         <div class="double-width">
-            <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Capa</mat-label>
-                <input type="text" matInput placeholder="Capa" name="capa" formControlName="capa">
-            </mat-form-field>
-
-           <!-- <button class="full-width btn-submit" mat-raised-button >Adicionar</button>  -->    
-           <button class="full-width btn-submit" mat-raised-button (click)="createLivro()">Cadastrar</button>
-            <!-- <a class="full-width btn-close" mat-raised-button routerLink="/dashboard">Cancelar</a> -->
+            <label for="capa">Selecione uma foto</label>
+            <input type="file" class="upload-capa" (change)="uploadFile($event)">              
+            <button class="full-width btn-submit" mat-raised-button (click)="createLivro()">Cadastrar</button>
         </div>
     </form>
 </div>

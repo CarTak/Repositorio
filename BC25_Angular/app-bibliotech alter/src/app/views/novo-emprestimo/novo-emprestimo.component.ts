@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UploadService } from 'src/app/services/upload.service';
 import { Emprestimo } from 'src/app/models/emprestimo';
+import { LivroService } from 'src/app/services/livro.service';
 
 @Component({
   selector: 'app-novo-emprestimo',
@@ -22,8 +23,9 @@ export class NovoEmprestimoComponent implements OnInit {
     private notification: NotificationService,
     private emprestimoService: EmprestimoService,
     private router: Router,
-    private upLoadService: UploadService
-  ) {
+    private upLoadService: UploadService,
+    private livroService: LivroService 
+  ) {    
     this.formEmprestimo = fb.group({
       titulo: ["", [Validators.required]],
       leitor: ["", [Validators.required]],

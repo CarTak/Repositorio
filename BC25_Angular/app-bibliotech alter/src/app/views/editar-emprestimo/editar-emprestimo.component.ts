@@ -51,11 +51,11 @@ export class EditarEmprestimoComponent implements OnInit {
   public uploadFile(event: any): void {
     this.isLoadUpLoad = true;
     const file: File= event.target.files[0];
-    this.upLoadService.uploadFoto(file).subscribe(response => {
-      this.isLoadUpLoad = false;
+    /* this.upLoadService.uploadCapa(file).subscribe(response => {
+      this.isLoadUpLoad = false; */
       /* response.ref.getDownloadURL().then((fotoUrl: string) => {
         this.bibliotech.fotoUrl = fotoUrl;
-      }) */
-    });
+      })
+    }); */
   }
 }

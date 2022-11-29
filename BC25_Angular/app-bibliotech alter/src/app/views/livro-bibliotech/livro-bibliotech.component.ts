@@ -15,8 +15,10 @@ import { DetailsComponent } from 'src/app/components/details/details.component';
 })
 export class LivroBibliotechComponent implements OnInit {
 
+  public livro!:Livro;
   public formLivro: FormGroup;
-  public isLoadUpLoad: boolean = false;  
+  public isLoadUpLoad: boolean = false;   
+  private  capa:string = ""; 
 
   displayedColumns = ['Titulo', 'Categoria', 'Autor', 'ISBN', 'excluir'];
   dataSource: Livro[] = [];
@@ -34,7 +36,7 @@ export class LivroBibliotechComponent implements OnInit {
       categoria: ["", [Validators.required]],
       autor: ["", [Validators.required]],
       isbn: ["", [Validators.required]],
-      capa: ["", [Validators.required]]
+      capa: ["", [Validators.required]]      
     });
    }
 
@@ -65,6 +67,7 @@ export class LivroBibliotechComponent implements OnInit {
   public createLivro(): void {
     if(this.formLivro.valid) {
       const livro: Livro = this.formLivro.value;
+      livro.capa = this.capa;
       this.livroService.createLivro(livro).subscribe(response => {
         this.notification.showMessage("Cadastrado com sucesso.");
         this.router.navigate(["/dashboard"]);
@@ -78,5 +81,11 @@ export class LivroBibliotechComponent implements OnInit {
   public uploadFile(event: any): void {
     this.isLoadUpLoad = true;
     const file: File= event.target.files[0];
-  }  
+    this.upLoadService.uploadCapa(file).subscribe(response => {
+      this.isLoadUpLoad = false;
+      response.ref.getDownloadURL().then((capa: string) => {
+        this.capa = capa;
+      })
+    });
+  }
 }

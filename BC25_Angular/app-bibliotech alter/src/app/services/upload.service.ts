@@ -13,8 +13,8 @@ export class UploadService {
     private notification: NotificationService
     ) { }
 
-  public uploadFoto(photo: File): Observable<any> {
-    const promise = this.storage.upload(`fotos/${Date.now()}`,photo);
+  public uploadCapa(capa: File): Observable<any> {
+    const promise = this.storage.upload(`capas/${Date.now()}`,capa);
     return from(promise).pipe(
       catchError(error => {
         this.notification.showMessage("Erro no envio do arquivo.");
